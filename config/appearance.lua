@@ -4,11 +4,13 @@ local colors = require('colors.custom')
 
 return {
    max_fps = 120,
-   front_end = 'WebGpu',
-   webgpu_power_preference = 'HighPerformance',
-   webgpu_preferred_adapter = gpu_adapters:pick_best(),
+   -- front_end = 'WebGpu',
+   -- webgpu_power_preference = 'HighPerformance',
+   -- webgpu_preferred_adapter = gpu_adapters:pick_best(),
    -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Dx12', 'IntegratedGpu'),
    -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Gl', 'Other'),
+   -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Vulkan', 'DiscreteGpu'),
+   -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Gl', 'IntegratedGpu'),
    underline_thickness = '1.5pt',
 
    -- cursor
@@ -42,7 +44,9 @@ return {
       top = 10,
       bottom = 7.5,
    },
-   adjust_window_size_when_changing_font_size = false,
+   initial_cols = 110,
+   initial_rows = 30,
+   -- adjust_window_size_when_changing_font_size = false,
    window_close_confirmation = 'NeverPrompt',
    window_frame = {
       active_titlebar_bg = '#090909',
