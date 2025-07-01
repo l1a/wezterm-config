@@ -1,14 +1,16 @@
 local gpu_adapters = require('utils.gpu-adapter')
 local backdrops = require('utils.backdrops')
-local colors = require('colors.custom')
+-- local colors = require('colors.custom')
 
 return {
    max_fps = 120,
    front_end = 'WebGpu',
-   webgpu_power_preference = 'HighPerformance',
-   webgpu_preferred_adapter = gpu_adapters:pick_best(),
+   -- webgpu_power_preference = 'HighPerformance',
+   -- webgpu_preferred_adapter = gpu_adapters:pick_best(),
    -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Dx12', 'IntegratedGpu'),
    -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Gl', 'Other'),
+   webgpu_preferred_adapter = gpu_adapters:pick_manual('Gl', 'IntegratedGpu'),
+   -- webgpu_preferred_adapter = gpu_adapters:pick_manual('Vulkan', 'IntegratedGpu'),
    underline_thickness = '1.5pt',
 
    -- cursor
@@ -19,7 +21,8 @@ return {
    cursor_blink_rate = 650,
 
    -- color scheme
-   colors = colors,
+   -- colors = colors,
+   color_scheme = "Afterglow",
 
    -- background
    background = backdrops:initial_options(false), -- set to true if you want wezterm to start on focus mode
@@ -42,7 +45,10 @@ return {
       top = 10,
       bottom = 7.5,
    },
-   adjust_window_size_when_changing_font_size = false,
+   initial_rows = 32,
+   initial_cols = 100,
+   -- adjust_window_size_when_changing_font_size = false,
+   adjust_window_size_when_changing_font_size = true,
    window_close_confirmation = 'NeverPrompt',
    window_frame = {
       active_titlebar_bg = '#090909',
